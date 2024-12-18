@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load my_tags %}
+
+{% block title %}
+{{ title }}
+{% endblock title %}
+{% block main %}
+    <!--buttons-->
+      <div>
+            <div class="buttons mb-5 d-flex justify-content-around">
+                {% all_species as species %}
+            {% for spec in species %}
+            <div>
+            <a href="{% url 'flowers_by_species' spec.id %}" class="btn btn-outline-primary btn-rounded" data-mdb-ripple-init  data-mdb-ripple-color="dark">
+                {{ spec.name }}
+            </a>
+            </div>
+            {% endfor %}
+          </div>
+      </div>
+    <!--buttons-->
+
+    <!--cards-->
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          {% for flower in flowers %}
+        <div class="col">
+          <div class="card h-100">
+              <a href="{% url 'detail_flowers' flower.id %}">
+                    <img src="{{ flower.photo.url }}" class="card-img-top" title="{{ flower.name }}" alt="flowers" data-mdb-tooltip-init/>
+              </a>
+            <div class="card-body">
+                <a href="{% url 'detail_flowers' flower.id %}">
+                    <h5 class="card-title">{{ flower.name }}</h5>
+                </a>
+              <p class="card-text">
+                  About: {{ flower.about|truncatewords:20 }}
+              </p>
+            </div>
+            <div class="card-footer d-flex justify-content-around">
+              <small class="text-muted">{{ flower.created_at }}</small>
+              <small class="text-muted">{{ flower.views }}</small>
+                <a href="{% url 'flowers_by_species' flower.species.id %}">
+                    <small>{{ flower.species }}</small>
+                </a>
+            </div>
+          </div>
+        </div>
+          {% endfor %}
+      </div>
+    <!--cards-->
+{% endblock main %}

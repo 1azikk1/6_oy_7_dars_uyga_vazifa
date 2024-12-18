@@ -1,0 +1,89 @@
+/* style.css */
+
+/* General styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Navbar */
+.navbar {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.navbar-brand img {
+  border-radius: 5px;
+}
+.nav-link {
+  color: #333;
+  transition: color 0.3s;
+}
+.nav-link:hover {
+  color: #007bff;
+}
+.dropdown-menu {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Main */
+main {
+  padding-top: 20px;
+}
+.buttons .btn {
+  width: 150px;
+  margin-bottom: 10px;
+  transition: transform 0.3s;
+}
+.buttons .btn:hover {
+  transform: translateY(-3px);
+}
+
+/* Cards */
+.card {
+  border: none;
+  transition: transform 0.3s;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+.card-img-top {
+  object-fit: cover;
+  border-radius: 5px 5px 0 0;
+}
+.card-footer {
+  background-color: #f8f9fa;
+  border-top: none;
+}
+.card-footer a {
+  color: #007bff;
+}
+.card-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  background-color: #e9ecef;
+  padding: 20px 0;
+}
+footer .mask {
+  transition: background-color 0.3s;
+}
+footer .mask:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+footer a {
+  color: #333;
+  transition: color 0.3s;
+}
+footer a:hover {
+  color: #007bff;
+}

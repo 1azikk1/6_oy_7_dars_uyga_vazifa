@@ -1,0 +1,34 @@
+<!--Footer starts here-->
+<footer class="bg-body-tertiary text-center">
+  <!-- Grid container -->
+  <div class="container p-4">
+    <!-- Section: Images -->
+    <section class="">
+      <div class="row">
+        {% for flower in flowers %}
+        <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+          <div data-mdb-ripple-init
+            class="bg-image hover-overlay shadow-1-strong rounded"
+            data-ripple-color="light"
+          >
+            <img src="{{ flower.photo.url }}" class="w-100" alt="{{ flower.name }}"/>
+            <a href="#!">
+              <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
+            </a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+    <!-- Section: Images -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+    © 2024 Copyright:
+    <a class="text-body" href="{% url 'home' %}">Thank you for your attention!🔥</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!--Footer ends here-->
