@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, get_list_or_404
 from .models import Flowers, Species
-
+from .forms import SpeciesForm, FlowerForm
 
 def home(request):
     flowers = Flowers.objects.all()
@@ -31,3 +31,32 @@ def detail_flowers(request, flower_id):
     }
     return render(request, 'detail.html', context)
 
+
+def add_species(request):
+    if request.method == 'POST':
+        form = SpeciesForm(data=request.POST, files=request.FILES)
+        if form.is_valid():
+            species = Species.objects.create(**form.cleaned_data)
+            print(species, "qo'shildi!")
+
+    form = SpeciesForm()
+    context = {
+        'form': form,
+        'title': "O'simlik turi qo'shish"
+    }
+    return render(request, 'add_species.html', context)
+
+
+def add_flowers(request):
+    if request.method == 'POST':
+        form = FlowerForm(data=request.POST, files=request.FILES)
+        if form.is_valid():
+            flowers = Flowers.objects.create(**form.cleaned_data)
+            print(flowers, "qo'shildi!")
+
+    form = FlowerForm()
+    context = {
+        'form': form,
+        'title': "Gul qo'shish"
+    }
+    return render(request, 'add_flowers.html', context)
