@@ -12,6 +12,12 @@
   <div class="card h-100">
     <img src="{{ flower.photo.url }}" class="card-img-top" alt="Skyscrapers"/>
     <div class="card-body">
+<!--edit and delete buttons-->
+        <div class="d-flex flex-row-reverse">
+            <a href="{% url 'delete_flower' flower.id %}"><i class="fas fa-trash-can"></i></a> &nbsp; &nbsp; &nbsp;
+          <a href="{% url 'update_flower' flower.id %}"><i class="fas fa-pen"></i></a>
+<!--edit and delete buttons-->
+      </div>
         <a href="#">
             <h5 class="card-title">{{ flower.name }}</h5>
         </a>

@@ -20,7 +20,7 @@ class FlowerForm(forms.Form):
     }), label='Gul haqida')
     photo = forms.ImageField(widget=forms.FileInput(attrs={
         'class': 'form-control'
-    }), label='Gul rasmi')
+    }), label='Gul rasmi', required=False)
     is_available = forms.BooleanField(widget=forms.CheckboxInput(attrs={
         'class': 'form-check-input',
         'checked': 'checked'

@@ -7,7 +7,18 @@
 {% block main %}
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Create" class="btn btn-outline-primary btn-rounded">
+<!--    {{ form.as_p }}-->
+    <p>{{ form.name }}</p>
+    <p>{{ form.about }}</p>
+    {% if photo %}
+    <a href="{{ photo.url }}">{{ photo }}</a>
+    {% endif %}
+    <p>{{ form.photo }}</p>
+    <p>{{ form.is_available }}</p>
+    <p>{{ form.species }}</p>
+    <div class="d-flex justify-content-around">
+        <input type="submit" value="Create" class="btn btn-outline-primary btn-rounded">
+        <a href="{% url 'home'  %}" class="btn btn-outline-primary btn-rounded">Cancel</a>
+    </div>
 </form>
 {% endblock main %}

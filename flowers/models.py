@@ -17,7 +17,7 @@ class Flowers(models.Model):
     about = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Qo'shilgan vaqti")
     views = models.IntegerField(default=0, verbose_name="Ko'rishlar soni")
-    photo = models.ImageField(upload_to='flowers/photos')
+    photo = models.ImageField(upload_to='flowers/photos', blank=True, null=True)
     is_available = models.BooleanField(default=True, verbose_name="Mavjud yoki Yoq", help_text="Galochka turgan holatda mavjud aks holda esa mavjud emas!")
     species = models.ForeignKey(Species, on_delete=models.CASCADE, verbose_name="Tur nomi")
 

@@ -26,7 +26,9 @@
         <div class="col">
           <div class="card h-100">
               <a href="{% url 'detail_flowers' flower.id %}">
+                  {% if flower.photo %}
                     <img src="{{ flower.photo.url }}" class="card-img-top" title="{{ flower.name }}" alt="flowers" data-mdb-tooltip-init/>
+                  {% endif %}
               </a>
             <div class="card-body">
                 <a href="{% url 'detail_flowers' flower.id %}">
