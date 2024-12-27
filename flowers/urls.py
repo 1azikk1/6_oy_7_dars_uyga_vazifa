@@ -1,5 +1,6 @@
 from django.urls import path
-from .views import home, flowers_by_species, detail_flowers, add_species, add_flowers, update_flower, delete_flower
+from .views import (home, flowers_by_species, detail_flowers, add_species, add_flowers, update_flower,
+                    delete_flower, register, login_view, logout_page)
 
 urlpatterns = [
     path('', home, name='home'),
@@ -9,4 +10,7 @@ urlpatterns = [
     path('flower/<int:flower_id>/delete/', delete_flower, name='delete_flower'),
     path('species/add/', add_species, name='add_species'),
     path('flowers/add/', add_flowers, name='add_flowers'),
+    path('register/', register, name='register'),
+    path('login/', login_view, name='login_view'),
+    path('logout/', logout_page, name='logout_page'),
 ]
