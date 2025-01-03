@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import (home, flowers_by_species, detail_flowers, add_species, add_flowers, update_flower,
-                    delete_flower, register, login_view, logout_page)
+                    delete_flower, register, login_view, logout_page, comment_save, delete_comment, comment_update)
 
 urlpatterns = [
     path('', home, name='home'),
@@ -13,4 +13,7 @@ urlpatterns = [
     path('register/', register, name='register'),
     path('login/', login_view, name='login_view'),
     path('logout/', logout_page, name='logout_page'),
+    path('flower/<int:flower_id>/comment/update/', comment_save, name='comment_save'),
+    path('comment/<int:comment_id>/delete/', delete_comment, name='delete_comment'),
+    path('comment/<int:comment_id>/update/', comment_update, name='comment_update'),
 ]

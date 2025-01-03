@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Species(models.Model):
@@ -28,3 +29,18 @@ class Flowers(models.Model):
         verbose_name = 'Gul '
         verbose_name_plural = 'Gullar'
         ordering = ('created_at',)
+
+
+class Comment(models.Model):
+    text = models.CharField(max_length=1000, verbose_name='Izoh Matni')
+    author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    flower = models.ForeignKey(Flowers, on_delete=models.CASCADE)
+    created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.author.username}|{self.text[:20]}|{self.flower.name}"
+
+    class Meta:
+        verbose_name = 'izoh '
+        verbose_name_plural = 'izohlar'
+        ordering = ['-created']

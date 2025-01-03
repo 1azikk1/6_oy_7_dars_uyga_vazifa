@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
-from .models import Species, Flowers
+from .models import Species, Flowers, Comment
 
 
 class SpeciesAdmin(admin.ModelAdmin):
@@ -33,3 +33,5 @@ class FlowersAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Flowers, FlowersAdmin)
+
+admin.site.register(Comment)
